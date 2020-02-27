@@ -7,8 +7,11 @@ var port = process.env.PORT || 2000;
 var publicDir = require('path').join(__dirname,'/public');
 app.use(express.static(publicDir));
 
-var bodyParser = require('body-Parser');
-app.use(bodyParser.urlencoded({extended:true}));
+/* var bodyParser = require('body-Parser');
+app.use(bodyParser.urlencoded({extended:true})); */
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false}));
 
 // khi mo website mac dinh
 app.get("/",(req,res)=>{
